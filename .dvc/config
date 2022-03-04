@@ -1,0 +1,6 @@
+['remote "myremote"']
+    url = gdrive://1G7pcIZzUVhMKnmJ_rqMabwL9FKDBYDW7
+    gdrive_client_id = 984705006027-tmcv4rb58456v7gvbugpts6aelorvc5q.apps.googleusercontent.com
+    gdrive_client_secret = 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
+['remote "womeninnetflix_data"']
+    url = gdrive://1-tPWxqBSWdfZdW1RGp0fQi1-m_eDhA6G
