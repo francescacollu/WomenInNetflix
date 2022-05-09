@@ -67,11 +67,11 @@ fig2.write_html('results/movies_genres_division_percentage.html')
 
 df_movies = df_movies.melt(id_vars=['Genre'], value_vars=['Generic', 'Main'], var_name='CharacterType', value_name='Ratio')
 fig = px.line(df_movies, y="Ratio", x="CharacterType", color="Genre", markers=True)
-fig.update_traces(marker=dict(size=15), line=dict(color='rgb(204, 80, 62)'))
+fig.update_traces(marker=dict(size=15), line=dict(color='#2CA02C'))
 genres = list(df_movies.Genre.unique())
 negative_slope_genres = [g for g in genres if list(df_movies[(df_movies['Genre']==g)&(df_movies['CharacterType']=='Main')]['Ratio'])[0]-list(df_movies[(df_movies['Genre']==g)&(df_movies['CharacterType']=='Generic')]['Ratio'])[0] < 0]
 fig.for_each_trace(
-	lambda trace: trace.update(line=dict(color='rgb(56, 166, 165)')) if trace.name in negative_slope_genres else (),
+	lambda trace: trace.update(line=dict(color='#D62728')) if trace.name in negative_slope_genres else (),
 )
 labels_font_size=15
 for g in genres:
@@ -218,11 +218,11 @@ fig4.write_html('results/tvshows_genres_division_percentage.html')
 
 df_tvshows = df_tvshows.melt(id_vars=['Genre'], value_vars=['Generic', 'Main'], var_name='CharacterType', value_name='Ratio')
 fig3 = px.line(df_tvshows, y="Ratio", x="CharacterType", color="Genre", markers=True)
-fig3.update_traces(marker=dict(size=15), line=dict(color='rgb(204, 80, 62)'))
+fig3.update_traces(marker=dict(size=15), line=dict(color='#2CA02C'))
 genres = list(df_tvshows.Genre.unique())
 negative_slope_genres = [g for g in genres if list(df_tvshows[(df_tvshows['Genre']==g)&(df_tvshows['CharacterType']=='Main')]['Ratio'])[0]-list(df_tvshows[(df_tvshows['Genre']==g)&(df_tvshows['CharacterType']=='Generic')]['Ratio'])[0] < 0]
 fig3.for_each_trace(
-	lambda trace: trace.update(line=dict(color='rgb(56, 166, 165)')) if trace.name in negative_slope_genres else (),
+	lambda trace: trace.update(line=dict(color='#D62728')) if trace.name in negative_slope_genres else (),
 )
 
 # Main Characters

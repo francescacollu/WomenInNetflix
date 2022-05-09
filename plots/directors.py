@@ -49,7 +49,7 @@ df_movies['FemaleRatio'] = df_movies['FemaleCount']/(df_movies['MaleCount']+df_m
 df_movies['FemaleRatioPercentage'] = round(df_movies['FemaleRatio']*100, 1)
 df_movies['FemaleRatioPercentage'] = df_movies['FemaleRatioPercentage'].astype(str)+'%'
 fig2 = px.bar(df_movies, y='Genre', x=['FemaleRatio'], orientation='h', text='FemaleRatioPercentage', barmode='group')#, title='Female Directors Presence Percentage Distribution over Movie Genres')
-fig2.update_traces(marker_color='#2CA02C')
+fig2.update_traces(marker_color='rgb(56, 166, 165)')
 fig2.add_vline(x=0.5, annotation_text="50% ", line_dash="dot",annotation_position="bottom right", line=dict(color="rgb(204,204,204)",width=4), annotation_font_size=18, annotation_font_color="black")
 fig2.for_each_annotation(lambda a: a.update(text='<b>'+a.text+'</b>'))
 fig2.for_each_annotation(lambda a: a.update(opacity=0.3))
@@ -64,7 +64,7 @@ fig2.update_layout(yaxis={'categoryorder':'total ascending'}, plot_bgcolor='whit
         ,height=700
         ,showlegend=False)
 fig2.write_html('results/directors_movies_genres_division_percentage.html')
-#py.plot(fig2, filename='directors_movies_genres_division', auto_open = False)
+py.plot(fig2, filename='directors_movies_genres_division', auto_open = False)
 
 # Time series
 df_time_series = pd.read_sql('''
@@ -79,7 +79,7 @@ fig3 = px.scatter(df_time_series, x='ReleaseYear', y='Ratio'
         , size='MoviesCount'
         , size_max=35)
         #, title='<b>Women Movie Directors Ratio</b>')
-fig3.update_traces(marker=dict(color='#2CA02C'))
+fig3.update_traces(marker=dict(color='rgb(56, 166, 165)'))
 fig3.add_hline(y=0.5, annotation_text="50% ", line_dash="dot",annotation_position="bottom right", line=dict(color="rgb(204,204,204)",width=2), annotation_font_size=18, annotation_font_color="black")
 fig3.for_each_annotation(lambda a: a.update(text='<b>'+a.text+'</b>'))
 fig3.for_each_annotation(lambda a: a.update(opacity=0.3))
