@@ -5,12 +5,9 @@ from sqlalchemy import create_engine
 import pandas as pd
 import chart_studio.plotly as py
 import chart_studio.tools as tls
+from credential_file import *
 
-
-username='fcollu'
-api_key='KlCMv4upeJgOV69aFpmr'
-tls.set_credentials_file(username=username,
-                                        api_key=api_key)
+tls.set_credentials_file(username=username, api_key=api_key) # I set username and api_key in the hidden credential_file
 
 # Movies: time series
 engine = create_engine('mysql+mysqlconnector://root:12345678@127.0.0.1:3306/women_in_netflix')
